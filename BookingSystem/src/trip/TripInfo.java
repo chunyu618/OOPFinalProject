@@ -1,8 +1,9 @@
 package trip;
 
 import java.util.Date;
+import database.DataBaseHandlerInterface;
 
-public class TripData implements Cloneable{
+public class TripInfo implements Cloneable{
 	private String title;
 	private int travelCode;
 	private String produckKey;
@@ -12,7 +13,7 @@ public class TripData implements Cloneable{
 	private int lowerBound;
 	private int upperBound;
 	
-	public TripData(){
+	public TripInfo(){
 		this.title = null;
 		this.travelCode = 0;
 		this.produckKey = null;
@@ -23,7 +24,7 @@ public class TripData implements Cloneable{
 		this.upperBound = 0;
 	}
 	
-	public TripData(String title, int travelCode, String produckKey, 
+	public TripInfo(String title, int travelCode, String produckKey, 
 					int price, Date startData, Date endDate, 
 					int lowerBound, int upperBound) {
 		super();
@@ -37,8 +38,8 @@ public class TripData implements Cloneable{
 		this.upperBound = upperBound;
 	}
 	
-	public TripData clone(){
-		TripData rev = new TripData();
+	public TripInfo clone(){
+		TripInfo rev = new TripInfo();
 		rev.title = this.title;
 		rev.travelCode = this.travelCode;
 		rev.produckKey = this.produckKey;
@@ -49,5 +50,6 @@ public class TripData implements Cloneable{
 		rev.upperBound = this.upperBound;
 		return rev;
 	}
+	
 	
 }

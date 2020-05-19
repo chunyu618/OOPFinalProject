@@ -1,13 +1,15 @@
 package trip;
 
-public class BookingData {
-	private TripData tripData;
+import database.DataBaseHandlerInterface;
+
+public class BookingInfo {
+	private TripInfo tripData;
 	private int userID;
 	private String orderNumber;
 	private int numberOfAdult;
 	private int numberOfChildren;
 	
-	public BookingData() {
+	public BookingInfo() {
 		super();
 		this.tripData = null;
 		this.userID = 0;
@@ -16,7 +18,7 @@ public class BookingData {
 		this.numberOfChildren = 0;
 	}
 	
-	public BookingData(TripData tripData, int userID, String orderNumber, 
+	public BookingInfo(TripInfo tripData, int userID, String orderNumber, 
 						int numberOfAdult, int numberOfChildren) {
 		super();
 		this.tripData = tripData.clone();
@@ -26,8 +28,8 @@ public class BookingData {
 		this.numberOfChildren = numberOfChildren;
 	}
 	
-	public BookingData clone(){
-		BookingData rev = new BookingData();
+	public BookingInfo clone(){
+		BookingInfo rev = new BookingInfo();
 		rev.tripData = this.tripData.clone();
 		rev.userID = this.userID;
 		rev.orderNumber = this.orderNumber;
@@ -35,4 +37,8 @@ public class BookingData {
 		rev.numberOfChildren = this.numberOfChildren;
 		return  rev;
 	}
+	
+	
+	
+	
 }

@@ -1,12 +1,12 @@
 package database;
 
 import java.util.ArrayList;
-
-import trip.BookingData;
-import trip.TripData;
+import trip.BookingInfo;
+import trip.TripInfo;
+import trip.Policy;
 
 public interface DataBaseHandlerInterface {
-	public ArrayList<TripData> readFromTripDatabese();
-	public ArrayList<BookingData> readFromBookingDatabese();
-	public void writeToBookingDataBase(ArrayList<BookingData> bookingData);
+	public ArrayList<TripInfo> readFromTripDatabese(Policy policy);
+	public ArrayList<BookingInfo> readFromBookingDatabese();
+	public void writeToBookingDataBase(ArrayList<BookingInfo> bookingData);
 }
