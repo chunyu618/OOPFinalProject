@@ -1,0 +1,69 @@
+package database;
+
+import java.io.*;
+import java.util.*;
+
+public class CsvToSql {
+	public static void convert (String csv_file, String sql_file) {
+		System.out.printf("start converting %s to %s ...\n", csv_file, sql_file);
+		try {
+			File in_file = new File(csv_file);
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(in_file), "UTF8");
+			BufferedReader input = new BufferedReader(isr);
+			
+			File out_file = new File(sql_file);
+			OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(out_file), "UTF8");
+			BufferedWriter output = new BufferedWriter(osw);
+			
+			output.write("drop table if exists trip_data;\n" + 
+					"CREATE TABLE trip_data (\n" + 
+					"	title text,\n" + 
+					"	travel_code int,\n" + 
+					"	product_key text,\n" + 
+					"	price int,\n" + 
+					"	start_date text,\n" + 
+					"	end_date text,\n" + 
+					"	lower_bound int,\n" + 
+					"	upper_bound int\n" + 
+					");\n\n");
+			
+			String line = null;
+			String[] element = null;
+			
+			line = input.readLine();
+			line = input.readLine();
+			
+			while (line != null) {
+				element = line.split(",");
+				List<String> list = Arrays.<String>asList(element);
+				ArrayList<String> data = new ArrayList<String>(list);
+				
+				if (line.contains("3,000")) {
+					String tmp = data.get(0) + "," + data.get(1);
+					data.remove(0);
+					data.remove(0);
+					data.add(0, tmp.replaceAll("^\"+|\"+$", ""));
+				}
+				
+				while (data.size() < 8)
+					data.add("NULL");
+				
+				output.write("INSERT INTO trip_data VALUES ('" + data.get(0) + "'");
+				for (int i = 1; i < data.size(); i++) {
+					if (data.get(i).matches("\\d+") || data.get(i).equals("NULL"))
+						output.write("," + data.get(i));
+					else output.write(",'" + data.get(i) + "'");
+				}
+				
+				output.write(");\n");
+				line = input.readLine();
+			}
+			
+			input.close();
+			output.close();
+			
+		} catch (IOException e) {
+			System.out.println("IOException occors");
+		}
+	}
+}
