@@ -15,26 +15,46 @@ public class TourDataHandler {
 	private static String SQ = "SELECT * FROM trip_data WHERE travel_code = ? AND start_date = ?";
 	
 	
-	private static ArrayList<TourData> getTours(ResultSet rs) throws SQLException {
+	/** Gets tours from ResultSet.
+	 * @param rs
+	 * @return ArrayList of TourData
+	 * @throws SQLException
+	 */
+	private static ArrayList<TourData> getTours(ResultSet rs) {
 		
 		ArrayList<TourData> tours = new ArrayList<TourData>();
 		
-		rs.beforeFirst();
-		while(rs.next()) {
-			TourData td = new TourData();
-			td.setTitle(rs.getString("title"));
-			td.setPrice(rs.getInt("price"));
-			td.setStartDate(rs.getDate("start_date").toLocalDate());
-			td.setLowerBound(rs.getInt("lower_bound"));
-			td.setUpperBound(rs.getInt("upper_bound"));
-			tours.add(td);
+		try {
+			tours = new ArrayList<TourData>();
+			
+			rs.beforeFirst();
+			while(rs.next()) {
+				TourData td = new TourData();
+				td.setTitle(rs.getString("title"));
+				td.setPrice(rs.getInt("price"));
+				td.setStartDate(rs.getDate("start_date").toLocalDate());
+				td.setLowerBound(rs.getInt("lower_bound"));
+				td.setUpperBound(rs.getInt("upper_bound"));
+				tours.add(td);
+			}
+			
+		}
+		catch(Exception e) {
+			System.err.print(e);
 		}
 		
 		return tours;
 	}
 	
 	
-	public static ArrayList<TourData> getResultFromDatabase(int travelCode, int year, int month, int day) throws SQLException {
+	/** Gets result from database according to travelCode and date.
+	 * @param travelCode Integer
+	 * @param year ArrayList
+	 * @param month ArrayList
+	 * @param day ArrayList
+	 * @return ArrayList of TourData
+	 */
+	public static ArrayList<TourData> getResultFromDatabase(int travelCode, int year, int month, int day) {
 		
 		String d = String.format("%04d-%02d-%02d", year, month, day);
 		
@@ -60,29 +80,16 @@ public class TourDataHandler {
 			
 			tourDataList = getTours(rs);
 			
+			if(rs != null) rs.close();
+			if(stmt != null) stmt.close();
+			if(con != null) con.close();
+			
 		}
 		catch(Exception e) {
 			System.err.print(e);
 		}
-		finally {
-			if(rs != null) rs.close();
-			if(stmt != null) stmt.close();
-			if(con != null) con.close();
-		}
 		
 		return tourDataList;
-	}
-	
-	
-	public static void main(String[] args) throws SQLException {
-		
-		ArrayList<TourData> a = getResultFromDatabase(100, 2020, 3, 26);
-		
-		for (TourData td : a) {
-			System.out.println(td.getTitle());
-			System.out.println(td.getStartDateYear() +" " + td.getStartDateMonthValue() + " " + td.getStartDateDay());
-		}
-		
 	}
 	
 }

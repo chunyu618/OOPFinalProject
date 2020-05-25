@@ -3,7 +3,6 @@ package database_utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-//import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -15,6 +14,9 @@ public class OrderDataHandler {
 		return tableName;
 	}
 	
+	/** Sets name of table for order data. Then use createOrderDataTable() to create table.
+	 * @param tableName String
+	 */
 	public static void setTableName(String tableName) {
 		String tbnt = tableName.trim();
 		if(tbnt == "" || tbnt == null) {
@@ -25,7 +27,10 @@ public class OrderDataHandler {
 	}
 	
 	
-	public static boolean createOrderDataTable() throws SQLException {
+	/** Generates an empty table for order data. Default table name: "order_data".
+	 * @return Boolean. True if succeeded.
+	 */
+	public static boolean createOrderDataTable() {
 		
 		boolean res = false;
 		
@@ -48,13 +53,12 @@ public class OrderDataHandler {
 			stmt = con.prepareStatement(SQ);
 			stmt.executeUpdate();
 			System.out.println("Table " + OrderDataHandler.getTableName() + " has been created.");
+			
+			if(stmt != null) stmt.close();
+			if(con != null) con.close();
 		}
 		catch(Exception e) {
 			System.err.print(e);
-		}
-		finally {
-			if(stmt != null) stmt.close();
-			if(con != null) con.close();
 		}
 		
 		res = true;
@@ -62,7 +66,11 @@ public class OrderDataHandler {
 	}
 	
 	
-	public static boolean addOrderData(OrderData od) throws SQLException {
+	/** Adds a record of order data to database according to an OrderData.
+	 * @param od OrderData instance
+	 * @return Boolean. True if succeeded.
+	 */
+	public static boolean addOrderData(OrderData od) {
 		
 		boolean res = false;
 		String tbName = OrderDataHandler.getTableName();
@@ -90,14 +98,11 @@ public class OrderDataHandler {
 			stmt.setInt(9, od.getOrderNumber());
 			stmt.executeUpdate();
 			
-			System.out.println("One record of data added.");
+			if(stmt != null) stmt.close();
+			if(con != null) con.close();
 		}
 		catch(Exception e) {
 			System.err.print(e);
-		}
-		finally {
-			if(stmt != null) stmt.close();
-			if(con != null) con.close();
 		}
 		
 		res = true;
@@ -105,6 +110,10 @@ public class OrderDataHandler {
 	}
 	
 	
+	/** Gets data from ResultSet.
+	 * @param rs ResultSet
+	 * @return OrderData
+	 */
 	public static OrderData getOrderFromResultSet(ResultSet rs) throws SQLException {
 		
 		OrderData odt = new OrderData();
@@ -124,7 +133,12 @@ public class OrderDataHandler {
 	}
 	
 	
-	public static OrderData getOrderData(int userID, int orderNumber) throws SQLException {
+	/** Gets OrderData from database according userID and orderNumber.
+	 * @param userID Integer
+	 * @param orderNumber Integer
+	 * @return OrderData, null if not found.
+	 */
+	public static OrderData getOrderData(int userID, int orderNumber) {
 		
 		OrderData od = null;
 		String tbName = OrderDataHandler.getTableName();
@@ -150,20 +164,23 @@ public class OrderDataHandler {
 			
 			od = getOrderFromResultSet(rs);
 			
-		}
-		catch(Exception e) {
-			System.err.print(e);
-		}
-		finally {
 			if(rs != null) rs.close();
 			if(stmt != null) stmt.close();
 			if(con != null) con.close();
+			
+		}
+		catch(Exception e) {
+			System.err.print(e);
 		}
 		
 		return od;
 	}
 	
-	public static boolean changeOrderData(OrderData od) throws SQLException {
+	/** Change order data in database according to an OrderData.
+	 * @param od OrderData
+	 * @return Boolean. True if succeeded.
+	 */
+	public static boolean changeOrderData(OrderData od) {
 		
 		boolean res = false;
 		String tbName = OrderDataHandler.getTableName();
@@ -174,7 +191,6 @@ public class OrderDataHandler {
 		
 		Connection con = null;
 		PreparedStatement stmt = null;
-		ResultSet rs = null;
 		
 		try {
 			con = DB_Connection.getConnection();
@@ -192,14 +208,12 @@ public class OrderDataHandler {
 			stmt.setInt(8, od.getOrderNumber());
 			
 			stmt.executeUpdate();
+			
+			if(stmt != null) stmt.close();
+			if(con != null) con.close();
 		}
 		catch(Exception e) {
 			System.err.print(e);
-		}
-		finally {
-			if(rs != null) rs.close();
-			if(stmt != null) stmt.close();
-			if(con != null) con.close();
 		}
 		
 		res = true;
@@ -207,7 +221,12 @@ public class OrderDataHandler {
 	}
 	
 	
-	public static boolean deleteOrderData(int userID, int orderNumber) throws SQLException {
+	/** Deletes an order data from database according userID and orderNUmber.
+	 * @param userID Integer
+	 * @param orderNumber Integer
+	 * @return Boolean. True if succeeded.
+	 */
+	public static boolean deleteOrderData(int userID, int orderNumber) {
 		
 		boolean res = false;
 		String tbName = OrderDataHandler.getTableName();
@@ -216,7 +235,6 @@ public class OrderDataHandler {
 		
 		Connection con = null;
 		PreparedStatement stmt = null;
-		ResultSet rs = null;
 		
 		try {
 			con = DB_Connection.getConnection();
@@ -227,64 +245,16 @@ public class OrderDataHandler {
 			stmt.setInt(2, orderNumber);
 			
 			stmt.executeUpdate();
-			System.out.println("One record deleted.");
+			
+			if(stmt != null) stmt.close();
+			if(con != null) con.close();
 		}
 		catch(Exception e) {
 			System.err.print(e);
-		}
-		finally {
-			if(rs != null) rs.close();
-			if(stmt != null) stmt.close();
-			if(con != null) con.close();
 		}
 		
 		res = true;
 		return res;
 	}
 	
-	
-	
-	public static void main(String[] args) throws SQLException {
-		
-		
-		// test create table
-		// createOrderDataTable();
-		
-		
-		// test add data
-//		OrderData od1 = new OrderData();
-//		od1.setOrderNumber(1);
-//		od1.setUserID(2);
-//		od1.setStartDate(2020, 1, 3);
-//		od1.setEndDate(2020, 2, 5);
-//		od1.setTotalPrice(2000);
-//		od1.setNumberOfAdults(4);
-//		od1.setNumberOfChildren(2);
-//		od1.setNumberOfBabies(1);
-		
-//		addOrderData(od1);		
-		
-//		od1.setEndDate(2020, 2, 6);
-//		changeOrderData(od1);
-//		
-//		OrderData tmp = getOrderData(od1.getUserID(), od1.getOrderNumber());
-//		System.out.println(tmp.getEndDateDay());
-		
-		
-		OrderData od2 = new OrderData();
-		od2.setOrderNumber(2);
-		od2.setUserID(3);
-		od2.setStartDate(2020, 3, 15);
-		od2.setEndDate(2020, 4, 1);
-		od2.setTotalPrice(3000);
-		od2.setNumberOfAdults(3);
-		od2.setNumberOfChildren(3);
-		od2.setNumberOfBabies(0);
-		
-//		addOrderData(od2);
-		deleteOrderData(od2.getUserID(), od2.getOrderNumber());
-		
-		
-	}
-
 }
