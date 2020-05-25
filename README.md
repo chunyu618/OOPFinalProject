@@ -1,7 +1,9 @@
 ## OOP 2020 Final Project
 
-Designated - booking system
+### Designated - Tour Booking System
 
-Optinal - 
+
+#### Usage
+(TBD)
 
 #### Reference
