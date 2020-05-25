@@ -1,7 +1,5 @@
 package trip;
 
-import database.DataBaseHandlerInterface;
-
 public class BookingInfo {
 	private TripInfo tripData;
 	private int userID;

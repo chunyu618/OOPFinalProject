@@ -1,7 +1,6 @@
 package trip;
 
 import java.util.Date;
-import database.DataBaseHandlerInterface;
 
 public class TripInfo implements Cloneable{
 	private String title;

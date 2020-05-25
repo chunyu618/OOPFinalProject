@@ -1,4 +1,4 @@
-package failure;
+package failure_exception;
 
 public class NoTripExecption extends Exception {
 

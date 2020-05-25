@@ -56,7 +56,7 @@ public class TourData {
 	// end date
 	
 	public LocalDate getEndDate() {
-		return startDate;
+		return endDate;
 	}
 
 	public void setEndDate(LocalDate endDate) {

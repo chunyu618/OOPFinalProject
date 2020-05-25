@@ -1,5 +1,5 @@
 package sysfunction;
 
-public class BookTrip {
+public class OrderTrip {
 
 }
