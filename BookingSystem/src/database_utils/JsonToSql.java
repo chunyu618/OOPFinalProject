@@ -65,4 +65,18 @@ public class JsonToSql {
 		File file = new File(filen);
 		return file.exists();
 	}
+	
+	/**
+	 * This method displays the usage of JsonToSql class
+	 * @param args: command line arguments
+	 */
+	public static void main (String[] args) {
+		String json_file = System.getProperty("user.dir") + "\\src\\travel_code.json";
+		String json_sql = System.getProperty("user.dir") + "\\src\\travel_code.sql";
+		
+		if (JsonToSql.exist(json_file)) {
+			System.out.println("json_file exists");
+			JsonToSql.convert(json_file, json_sql);
+		}
+	}
 }

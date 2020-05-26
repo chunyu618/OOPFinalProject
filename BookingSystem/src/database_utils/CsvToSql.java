@@ -84,4 +84,18 @@ public class CsvToSql {
 		File file = new File(filen);
 		return file.exists();
 	}
+	
+	/**
+	 * This method displays the usage of CsvToSql class
+	 * @param args: command line arguments
+	 */
+	public static void main (String[] args) {
+		String csv_file = System.getProperty("user.dir") + "\\src\\trip_data_all.csv";
+		String csv_sql = System.getProperty("user.dir") + "\\src\\trip_data.sql";
+		
+		if (CsvToSql.exist(csv_file)) {
+			System.out.println("csv_file exists");
+			CsvToSql.convert(csv_file, csv_sql);
+		}
+	}
 }
