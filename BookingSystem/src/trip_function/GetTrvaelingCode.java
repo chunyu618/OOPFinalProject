@@ -1,5 +1,4 @@
-package sysfunction;
-
+package trip_function;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,35 +13,44 @@ import java.util.Map;
 import java.util.Set;
 
 
-
+/**
+ * GetTrvaelingCode will convert json file to a mapping from String to Integer, 
+ * which record the travel code of destination.
+ * @author lijunyu
+ *
+ */
 public class GetTrvaelingCode {
-	public static Map<String, Integer> convert() {
+	public static Map<String, Integer> map = convert();
+	
+	private static Map<String, Integer> convert() {
+		//System.out.println("start convert!!");
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		JSONParser parser = new JSONParser();
 		try {
+			// open json file from rul by a parser.
 			Object obj = parser.parse(new FileReader("src/json/travel_code.json"));
 			
-			// A JSON object. Key value pairs are unordered. JSONObject supports java.util.Map interface.
-			//JSONObject jsonObject = (JSONObject) obj;
- 
-			// A JSON array. JSONObject supports java.util.List interface.
+			// change type from to JSONArray.
 			JSONArray companyList = (JSONArray) obj;
  
-			// An iterator over a collection. Iterator takes the place of Enumeration in the Java Collections Framework.
-			// Iterators differ from enumerations in two ways:
-			// 1. Iterators allow the caller to remove elements from the underlying collection during the iteration with well-defined semantics.
-			// 2. Method names have been improved.
+			// Iterator of every pair of destination and travel code.
 			Iterator<JSONObject> iterator = companyList.iterator();
 			while (iterator.hasNext()) {
 				JSONObject JObj = iterator.next();
+				// parse travel_code.
 				int travel_code = Integer.parseInt(JObj.get("travel_code").toString());
+				// parse travel_code_name.
 				String name = JObj.get("travel_code_name").toString();
+				// split by 
 				String[] place = name.split("．");
+				// aput every pair of destination and travel code to map.
 				for(String w : place){
 					map.put(w, travel_code);
 				}
 			}
+			
 			/*
+			// try to print out
 			Set<Integer> set = map.keySet();
 			for(int i : set){
 				System.out.println("travel code : " + i);
@@ -52,9 +60,10 @@ public class GetTrvaelingCode {
 				}
 			}
 			*/
+			
 		} 
 		catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		return map;
 	}
