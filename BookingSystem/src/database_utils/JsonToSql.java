@@ -2,9 +2,17 @@ package database;
 
 import java.io.*;
 
+/**
+ * The JsonToSql class is used to convert json file (.json) into sql file (.sql)
+ */
 public class JsonToSql {
+	/**
+	 * This method is used to convert file (.json) into file (.sql)
+	 * @param json_file: the path of the json input file
+	 * @param sql_file: the path of the sql output file
+	 */
 	public static void convert (String json_file, String sql_file) {
-		System.out.printf("start converting %s to %s ...\n", json_file, sql_file);
+		System.out.printf("start converting json_file to sql_file ...\n");
 		try {
 			File in_file = new File(json_file);
 			InputStreamReader isr = new InputStreamReader(new FileInputStream(in_file), "UTF8");
@@ -46,5 +54,15 @@ public class JsonToSql {
 		} catch (IOException e) {
 			System.out.println("IOException occors");
 		}
+	}
+
+	/**
+	 * This method is used to check whether the given file exists
+	 * @param filen: the path of the file to be checked
+	 * @return true if the given file exists, false else
+	 */
+	public static boolean exist (String filen) {
+		File file = new File(filen);
+		return file.exists();
 	}
 }
