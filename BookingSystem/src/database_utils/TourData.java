@@ -6,6 +6,8 @@ public class TourData {
 	
 	private String title;
 	private int price;
+	private int travelCode;
+	
 	private LocalDate startDate;
 	private LocalDate endDate;
 	private int upperBound;
@@ -26,8 +28,22 @@ public class TourData {
 		this.title = title;
 	}
 	
+	/** Getter of travelCode.
+	 * @return travelCode, Integer
+	 */
+	public int getTravelCode() {
+		return travelCode;
+	}
+	
+	/** Setter of travelCode.
+	 * @param travelCode, Integer
+	 */
+	public void setTravelCode(int travelCode) {
+		this.travelCode = travelCode;
+	}
+	
 	/** Getter of price.
-	 * @return price, Integer.
+	 * @return price, Integer
 	 */
 	public int getPrice() {
 		return price;

@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import st1.OrderData;
+
 
 public class OrderDataHandler {
 	
@@ -53,6 +55,67 @@ public class OrderDataHandler {
 			stmt = con.prepareStatement(SQ);
 			stmt.executeUpdate();
 			System.out.println("Table " + OrderDataHandler.getTableName() + " has been created.");
+			
+			if(stmt != null) stmt.close();
+			if(con != null) con.close();
+		}
+		catch(Exception e) {
+			System.err.print(e);
+		}
+		
+		res = true;
+		return res;
+	}
+	
+	
+	/** Deletes table of order data.
+	 * @return Boolean. True if succeeded.
+	 */
+	public static boolean deleteOrderDataTable() {
+		
+		boolean res = false;
+		
+		String SQ = "DROP TABLE " + OrderDataHandler.getTableName();
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			con = DB_Connection.getConnection();
+			
+			stmt = con.prepareStatement(SQ);
+			stmt.executeUpdate();
+			System.out.println("Table " + OrderDataHandler.getTableName() + " has been deleted.");
+			
+			if(stmt != null) stmt.close();
+			if(con != null) con.close();
+		}
+		catch(Exception e) {
+			System.err.print(e);
+		}
+		
+		res = true;
+		return res;
+	}
+	
+	
+	/** Deletes all of the records in order data table.
+	 * @return Boolean. True if succeeded.
+	 */
+	public static boolean deleteAllOrderData() {
+		
+		boolean res = false;
+		
+		String SQ = "TRUNCATE TABLE " + OrderDataHandler.getTableName();
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			con = DB_Connection.getConnection();
+			
+			stmt = con.prepareStatement(SQ);
+			stmt.executeUpdate();
 			
 			if(stmt != null) stmt.close();
 			if(con != null) con.close();

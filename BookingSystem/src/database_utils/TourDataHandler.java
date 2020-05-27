@@ -33,6 +33,7 @@ public class TourDataHandler {
 				TourData td = new TourData();
 				td.setTitle(rs.getString("title"));
 				td.setPrice(rs.getInt("price"));
+				td.setTravelCode(rs.getInt("travel_code"));
 				td.setStartDate(rs.getDate("start_date").toLocalDate());
 				td.setEndDate(rs.getDate("end_date").toLocalDate());
 				td.setLowerBound(rs.getInt("lower_bound"));
