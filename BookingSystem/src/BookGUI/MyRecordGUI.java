@@ -70,7 +70,14 @@ public class MyRecordGUI {
     	StringTokenizer raw = new StringTokenizer(msg);
     	try{
     		String ID = raw.nextToken();
-            String code = raw.nextToken();
+            String Code = raw.nextToken();
+            try {
+            	int id = Integer.parseInt(ID);
+            	int code = Integer.parseInt(Code);
+            }
+            catch(Exception e) {
+            	return false;
+            }
             if (raw.hasMoreTokens()) return false;
             return true;
         }

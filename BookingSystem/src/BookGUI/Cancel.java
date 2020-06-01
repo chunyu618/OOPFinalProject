@@ -80,8 +80,15 @@ public class Cancel extends JFrame {
 				if (raw.hasMoreTokens()) {
 					String tmp = raw.nextToken();
 					if(raw.hasMoreTokens()) {
-						lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
 						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
 					}
 				}
 				msg = textField_1.getText();
@@ -89,12 +96,19 @@ public class Cancel extends JFrame {
 				if (raw.hasMoreTokens()) {
 					String tmp = raw.nextToken();
 					if(raw.hasMoreTokens()) {
-						lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
 						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
 					}
 				}
 				if(flag == true) {
-					lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
+					lblNewLabel_2.setText("Hint...請輸入一個整數");
 				}
 				else {
 					lblNewLabel_2.setText("Hint...");
@@ -109,7 +123,7 @@ public class Cancel extends JFrame {
 		btnNewButton_1.setBounds(341, 10, 85, 23);
 		contentPane.add(btnNewButton_1);
 		
-		JLabel lblNewLabel_1 = new JLabel("\u8A02\u4F4D\u4EE3\u865F :");
+		JLabel lblNewLabel_1 = new JLabel("\u8A02\u55AE\u7DE8\u865F :");
 		lblNewLabel_1.setFont(new Font("新細明體", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(10, 43, 67, 15);
 		contentPane.add(lblNewLabel_1);
@@ -123,8 +137,15 @@ public class Cancel extends JFrame {
 				if (raw.hasMoreTokens()) {
 					String tmp = raw.nextToken();
 					if(raw.hasMoreTokens()) {
-						lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
 						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
 					}
 				}
 				msg = textField_1.getText();
@@ -132,12 +153,19 @@ public class Cancel extends JFrame {
 				if (raw.hasMoreTokens()) {
 					String tmp = raw.nextToken();
 					if(raw.hasMoreTokens()) {
-						lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
 						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
 					}
 				}
 				if(flag == true) {
-					lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
+					lblNewLabel_2.setText("Hint...請輸入一個整數");
 				}
 				else {
 					lblNewLabel_2.setText("Hint...");

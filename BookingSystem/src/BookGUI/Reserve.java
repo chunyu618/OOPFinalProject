@@ -42,6 +42,10 @@ public class Reserve extends JFrame {
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_2_3;
+	private JLabel lblNewLabel_2_4;
+	private JComboBox comboBox_1_2_2;
+	private JLabel lblNewLabel_2_2_2;
 	
 
 	/**
@@ -83,6 +87,25 @@ public class Reserve extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		comboBox_1 = new JComboBox();
+		comboBox_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int tmp = Integer.parseInt(String.valueOf(comboBox_1_1.getSelectedItem()));
+				if (tmp == 2) {
+					if (Integer.parseInt(String.valueOf(comboBox_1.getSelectedItem())) == 2020) {
+						comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"}));
+					}
+					else {
+						comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					}
+				}
+				else if (tmp == 4 || tmp == 6 || tmp == 9 || tmp == 11) {
+					comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
+				}
+				else {
+					comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+				}
+			}
+		});
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"2020", "2021"}));
 		comboBox_1.setBounds(88, 35, 58, 23);
 		contentPane.add(comboBox_1);
@@ -97,7 +120,12 @@ public class Reserve extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int tmp = Integer.parseInt(String.valueOf(comboBox_1_1.getSelectedItem()));
 				if (tmp == 2) {
-					comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					if (Integer.parseInt(String.valueOf(comboBox_1.getSelectedItem())) == 2020) {
+						comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"}));
+					}
+					else {
+						comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					}
 				}
 				else if (tmp == 4 || tmp == 6 || tmp == 9 || tmp == 11) {
 					comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
@@ -132,6 +160,25 @@ public class Reserve extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		comboBox_1_2 = new JComboBox();
+		comboBox_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int tmp = Integer.parseInt(String.valueOf(comboBox_1_1_2.getSelectedItem()));
+				if (tmp == 2) {
+					if (Integer.parseInt(String.valueOf(comboBox_1_2.getSelectedItem())) == 2020) {
+						comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"}));
+					}
+					else {
+						comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					}
+				}
+				else if (tmp == 4 || tmp == 6 || tmp == 9 || tmp == 11) {
+					comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
+				}
+				else {
+					comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+				}
+			}
+		});
 		comboBox_1_2.setModel(new DefaultComboBoxModel(new String[] {"2020", "2021"}));
 		comboBox_1_2.setBounds(88, 64, 58, 23);
 		contentPane.add(comboBox_1_2);
@@ -146,7 +193,12 @@ public class Reserve extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int tmp = Integer.parseInt(String.valueOf(comboBox_1_1_2.getSelectedItem()));
 				if (tmp == 2) {
-					comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					if (Integer.parseInt(String.valueOf(comboBox_1_2.getSelectedItem())) == 2020) {
+						comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"}));
+					}
+					else {
+						comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					}
 				}
 				else if (tmp == 4 || tmp == 6 || tmp == 9 || tmp == 11) {
 					comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
@@ -183,10 +235,16 @@ public class Reserve extends JFrame {
 				if (raw.hasMoreTokens()) {
 					String tmp = raw.nextToken();
 					if(raw.hasMoreTokens()) {
-						lblNewLabel_3.setText("Hint...輸入不可包含空白字元");
+						lblNewLabel_3.setText("Hint...請輸入一個整數");
 					}
 					else {
-						lblNewLabel_3.setText("Hint...");
+						try {
+							int ID = Integer.parseInt(tmp);
+							lblNewLabel_3.setText("Hint...");
+						}
+						catch(Exception ex) {
+							lblNewLabel_3.setText("Hint...請輸入一個整數");
+						}
 					}
 				}
 				else {
@@ -204,13 +262,13 @@ public class Reserve extends JFrame {
 		contentPane.add(lblNewLabel_1_1_1);
 		
 		comboBox_1_2_1 = new JComboBox();
-		comboBox_1_2_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"}));
-		comboBox_1_2_1.setBounds(88, 93, 58, 23);
+		comboBox_1_2_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		comboBox_1_2_1.setBounds(127, 93, 43, 23);
 		contentPane.add(comboBox_1_2_1);
 		
 		JLabel lblNewLabel_2_2_1 = new JLabel("\u4EBA");
 		lblNewLabel_2_2_1.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2_2_1.setBounds(156, 97, 19, 15);
+		lblNewLabel_2_2_1.setBounds(180, 97, 19, 15);
 		contentPane.add(lblNewLabel_2_2_1);
 		
 		btnNewButton = new JButton("\u78BA\u8A8D");
@@ -224,6 +282,26 @@ public class Reserve extends JFrame {
 		lblNewLabel_3 = new JLabel("Hint...");
 		lblNewLabel_3.setBounds(10, 122, 329, 15);
 		contentPane.add(lblNewLabel_3);
+		
+		lblNewLabel_2_3 = new JLabel("\u5927\u4EBA");
+		lblNewLabel_2_3.setFont(new Font("新細明體", Font.PLAIN, 14));
+		lblNewLabel_2_3.setBounds(88, 97, 29, 15);
+		contentPane.add(lblNewLabel_2_3);
+		
+		lblNewLabel_2_4 = new JLabel("\u5C0F\u5B69");
+		lblNewLabel_2_4.setFont(new Font("新細明體", Font.PLAIN, 14));
+		lblNewLabel_2_4.setBounds(213, 97, 29, 15);
+		contentPane.add(lblNewLabel_2_4);
+		
+		comboBox_1_2_2 = new JComboBox();
+		comboBox_1_2_2.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		comboBox_1_2_2.setBounds(252, 93, 43, 23);
+		contentPane.add(comboBox_1_2_2);
+		
+		lblNewLabel_2_2_2 = new JLabel("\u4EBA");
+		lblNewLabel_2_2_2.setFont(new Font("新細明體", Font.PLAIN, 14));
+		lblNewLabel_2_2_2.setBounds(305, 97, 19, 15);
+		contentPane.add(lblNewLabel_2_2_2);
 	}
 	public JButton getBack() {
 		return btnNewButton_1;
@@ -241,6 +319,7 @@ public class Reserve extends JFrame {
 		msg += String.valueOf(comboBox_1_1_2.getSelectedItem()) + " ";
 		msg += String.valueOf(comboBox_1_1_1_1.getSelectedItem()) + " ";
 		msg += String.valueOf(comboBox_1_2_1.getSelectedItem()) + " ";
+		msg += String.valueOf(comboBox_1_2_2.getSelectedItem());
 		return msg;
 	}
 }

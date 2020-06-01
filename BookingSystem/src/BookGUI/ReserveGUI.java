@@ -73,22 +73,25 @@ public class ReserveGUI {
     	StringTokenizer raw = new StringTokenizer(msg);
     	try{
             String ID = raw.nextToken();
+            try {
+            	int id = Integer.parseInt(ID);
+            }
+            catch(Exception e) {
+            	return false;
+            }
             if (ID.equals("null")) return false;
             String Year = raw.nextToken();
             String Month = raw.nextToken();
             int m = Integer.parseInt(Month);
             String Day = raw.nextToken();
             int d = Integer.parseInt(Day);
-            if (m == 2 && d > 28) return false;
-            if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30) return false;
             Year = raw.nextToken();
             Month = raw.nextToken();
             m = Integer.parseInt(Month);
             Day = raw.nextToken();
             d = Integer.parseInt(Day);
-            if (m == 2 && d > 28) return false;
-            if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30) return false;
-            String number = raw.nextToken();
+            String adult = raw.nextToken();
+            String child = raw.nextToken();
             if (raw.hasMoreTokens()) return false;
             return true;
         }

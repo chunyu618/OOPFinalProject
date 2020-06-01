@@ -33,6 +33,9 @@ public class Find extends JFrame {
 	private JComboBox comboBox_1;
 	private JComboBox comboBox_1_1;
 	private JComboBox comboBox_1_1_1;
+	private JComboBox comboBox_1_2;
+	private JComboBox comboBox_1_1_2;
+	private JComboBox comboBox_1_1_1_1;
 	
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
@@ -81,6 +84,25 @@ public class Find extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		comboBox_1 = new JComboBox();
+		comboBox_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int tmp = Integer.parseInt(String.valueOf(comboBox_1_1.getSelectedItem()));
+				if (tmp == 2) {
+					if (Integer.parseInt(String.valueOf(comboBox_1.getSelectedItem())) == 2020) {
+						comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"}));
+					}
+					else {
+						comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					}
+				}
+				else if (tmp == 4 || tmp == 6 || tmp == 9 || tmp == 11) {
+					comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
+				}
+				else {
+					comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+				}
+			}
+		});
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"2020", "2021"}));
 		comboBox_1.setBounds(88, 35, 58, 23);
 		contentPane.add(comboBox_1);
@@ -95,7 +117,12 @@ public class Find extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int tmp = Integer.parseInt(String.valueOf(comboBox_1_1.getSelectedItem()));
 				if (tmp == 2) {
-					comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					if (Integer.parseInt(String.valueOf(comboBox_1.getSelectedItem())) == 2020) {
+						comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"}));
+					}
+					else {
+						comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					}
 				}
 				else if (tmp == 4 || tmp == 6 || tmp == 9 || tmp == 11) {
 					comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
@@ -119,9 +146,9 @@ public class Find extends JFrame {
 		comboBox_1_1_1.setBounds(267, 35, 43, 23);
 		contentPane.add(comboBox_1_1_1);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("\u65E5");
+		JLabel lblNewLabel_2_1_1 = new JLabel("\u65E5  \u5230");
 		lblNewLabel_2_1_1.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2_1_1.setBounds(320, 39, 19, 15);
+		lblNewLabel_2_1_1.setBounds(320, 39, 43, 15);
 		contentPane.add(lblNewLabel_2_1_1);
 		
 		btnNewButton = new JButton("\u78BA\u5B9A");
@@ -151,6 +178,74 @@ public class Find extends JFrame {
 		table = new JTable(data, columns);
 		resizeColumnWidth(table);
 		scrollPane.setViewportView(table);
+		
+		comboBox_1_2 = new JComboBox();
+		comboBox_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int tmp = Integer.parseInt(String.valueOf(comboBox_1_1_2.getSelectedItem()));
+				if (tmp == 2) {
+					if (Integer.parseInt(String.valueOf(comboBox_1_2.getSelectedItem())) == 2020) {
+						comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"}));
+					}
+					else {
+						comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					}
+				}
+				else if (tmp == 4 || tmp == 6 || tmp == 9 || tmp == 11) {
+					comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
+				}
+				else {
+					comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+				}
+			}
+		});
+		comboBox_1_2.setModel(new DefaultComboBoxModel(new String[] {"2020", "2021"}));
+		comboBox_1_2.setBounds(373, 35, 58, 23);
+		contentPane.add(comboBox_1_2);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("\u5E74");
+		lblNewLabel_2_2.setFont(new Font("新細明體", Font.PLAIN, 14));
+		lblNewLabel_2_2.setBounds(441, 39, 19, 15);
+		contentPane.add(lblNewLabel_2_2);
+		
+		comboBox_1_1_2 = new JComboBox();
+		comboBox_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int tmp = Integer.parseInt(String.valueOf(comboBox_1_1_2.getSelectedItem()));
+				if (tmp == 2) {
+					if (Integer.parseInt(String.valueOf(comboBox_1_2.getSelectedItem())) == 2020) {
+						comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"}));
+					}
+					else {
+						comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+					}
+				}
+				else if (tmp == 4 || tmp == 6 || tmp == 9 || tmp == 11) {
+					comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
+				}
+				else {
+					comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+				}
+			}
+		});
+		comboBox_1_1_2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		comboBox_1_1_2.setBounds(470, 35, 43, 23);
+		contentPane.add(comboBox_1_1_2);
+		
+		JLabel lblNewLabel_2_1_2 = new JLabel("\u6708");
+		lblNewLabel_2_1_2.setFont(new Font("新細明體", Font.PLAIN, 14));
+		lblNewLabel_2_1_2.setBounds(523, 39, 19, 15);
+		contentPane.add(lblNewLabel_2_1_2);
+		
+		comboBox_1_1_1_1 = new JComboBox();
+		comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		comboBox_1_1_1_1.setBounds(552, 35, 43, 23);
+		contentPane.add(comboBox_1_1_1_1);
+		
+		JLabel lblNewLabel_2_1_1_1 = new JLabel("\u65E5 \u4E4B\u9593");
+		lblNewLabel_2_1_1_1.setFont(new Font("新細明體", Font.PLAIN, 14));
+		lblNewLabel_2_1_1_1.setBounds(605, 39, 47, 15);
+		contentPane.add(lblNewLabel_2_1_1_1);
 	}
 	public void resizeColumnWidth(JTable table) {
 	    final TableColumnModel columnModel = table.getColumnModel();
@@ -177,7 +272,10 @@ public class Find extends JFrame {
 		msg += String.valueOf(comboBox.getSelectedItem()) + " ";
 		msg += String.valueOf(comboBox_1.getSelectedItem()) + " ";
 		msg += String.valueOf(comboBox_1_1.getSelectedItem()) + " ";
-		msg += String.valueOf(comboBox_1_1_1.getSelectedItem());
+		msg += String.valueOf(comboBox_1_1_1.getSelectedItem()) + " ";
+		msg += String.valueOf(comboBox_1_2.getSelectedItem()) + " ";
+		msg += String.valueOf(comboBox_1_1_2.getSelectedItem()) + " ";
+		msg += String.valueOf(comboBox_1_1_1_1.getSelectedItem());
 		return msg;
 	}
 }

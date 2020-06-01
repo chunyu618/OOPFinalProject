@@ -84,8 +84,11 @@ public class FindGUI {
             int m = Integer.parseInt(Month);
             String Day = raw.nextToken();
             int d = Integer.parseInt(Day);
-            if (m == 2 && d > 28) return false;
-            if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30) return false;
+            Year = raw.nextToken();
+            Month = raw.nextToken();
+            m = Integer.parseInt(Month);
+            Day = raw.nextToken();
+            d = Integer.parseInt(Day);
             return true;
         }
     	catch(Exception e){

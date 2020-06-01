@@ -72,8 +72,15 @@ public class MyRecord extends JFrame {
 				if (raw.hasMoreTokens()) {
 					String tmp = raw.nextToken();
 					if(raw.hasMoreTokens()) {
-						lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
 						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
 					}
 				}
 				msg = textField_1.getText();
@@ -81,12 +88,19 @@ public class MyRecord extends JFrame {
 				if (raw.hasMoreTokens()) {
 					String tmp = raw.nextToken();
 					if(raw.hasMoreTokens()) {
-						lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
 						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
 					}
 				}
 				if(flag == true) {
-					lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
+					lblNewLabel_2.setText("Hint...請輸入一個整數");
 				}
 				else {
 					lblNewLabel_2.setText("Hint...");
@@ -110,8 +124,15 @@ public class MyRecord extends JFrame {
 				if (raw.hasMoreTokens()) {
 					String tmp = raw.nextToken();
 					if(raw.hasMoreTokens()) {
-						lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
 						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
 					}
 				}
 				msg = textField_1.getText();
@@ -119,12 +140,19 @@ public class MyRecord extends JFrame {
 				if (raw.hasMoreTokens()) {
 					String tmp = raw.nextToken();
 					if(raw.hasMoreTokens()) {
-						lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
 						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
 					}
 				}
 				if(flag == true) {
-					lblNewLabel_2.setText("Hint...輸入不可包含空白字元");
+					lblNewLabel_2.setText("Hint...請輸入一個整數");
 				}
 				else {
 					lblNewLabel_2.setText("Hint...");
