@@ -83,7 +83,8 @@ public class CancelGUI {
             String Action = raw.nextToken();
             if(Action.equals("Cancel")) return true;
             if(Action.equals("Change")) {
-            	String number = raw.nextToken();
+            	String number1 = raw.nextToken();
+            	String number2 = raw.nextToken();
             }
             if (raw.hasMoreTokens()) return false;
             return true;

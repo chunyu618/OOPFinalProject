@@ -33,6 +33,7 @@ public class Cancel extends JFrame {
 	private JRadioButton rdbtnNewRadioButton;
 	private JRadioButton rdbtnNewRadioButton_1;
 	private JComboBox comboBox_1_2_1;
+	private JComboBox comboBox_1_2_1_1;
 	
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
@@ -182,29 +183,39 @@ public class Cancel extends JFrame {
 		rdbtnNewRadioButton.setBounds(10, 73, 105, 23);
 		contentPane.add(rdbtnNewRadioButton);
 		
-		rdbtnNewRadioButton_1 = new JRadioButton("\u66F4\u6539\u70BA");
+		rdbtnNewRadioButton_1 = new JRadioButton("\u66F4\u6539\u70BA\u5927\u4EBA");
 		rdbtnNewRadioButton_1.addActionListener(new ChangeListener());
 		rdbtnNewRadioButton_1.setFont(new Font("新細明體", Font.PLAIN, 14));
-		rdbtnNewRadioButton_1.setBounds(10, 101, 85, 23);
+		rdbtnNewRadioButton_1.setBounds(10, 101, 105, 23);
 		contentPane.add(rdbtnNewRadioButton_1);
 		
 		btnNewButton = new JButton("\u78BA\u8A8D");
-		btnNewButton.setBounds(341, 101, 85, 23);
+		btnNewButton.setBounds(341, 126, 85, 23);
 		contentPane.add(btnNewButton);
 		
 		comboBox_1_2_1 = new JComboBox();
 		comboBox_1_2_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"}));
-		comboBox_1_2_1.setBounds(101, 102, 68, 23);
+		comboBox_1_2_1.setBounds(121, 101, 68, 23);
 		contentPane.add(comboBox_1_2_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("\u4EBA");
+		JLabel lblNewLabel_1_1 = new JLabel("\u4EBA  \u5C0F\u5B69");
 		lblNewLabel_1_1.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_1_1.setBounds(179, 105, 22, 15);
+		lblNewLabel_1_1.setBounds(199, 105, 67, 15);
 		contentPane.add(lblNewLabel_1_1);
 		
 		lblNewLabel_2 = new JLabel("Hint...");
 		lblNewLabel_2.setBounds(10, 130, 329, 15);
 		contentPane.add(lblNewLabel_2);
+		
+		comboBox_1_2_1_1 = new JComboBox();
+		comboBox_1_2_1_1.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		comboBox_1_2_1_1.setBounds(262, 101, 68, 23);
+		contentPane.add(comboBox_1_2_1_1);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("\u4EBA");
+		lblNewLabel_1_1_1.setFont(new Font("新細明體", Font.PLAIN, 14));
+		lblNewLabel_1_1_1.setBounds(340, 105, 30, 15);
+		contentPane.add(lblNewLabel_1_1_1);
 	}
 	
 	class CancelListener implements ActionListener {
@@ -233,7 +244,8 @@ public class Cancel extends JFrame {
 		}
 		else if(rdbtnNewRadioButton_1.isSelected()) {
 			msg += "Change ";
-			msg += String.valueOf(comboBox_1_2_1.getSelectedItem());
+			msg += String.valueOf(comboBox_1_2_1.getSelectedItem()) + " ";
+			msg += String.valueOf(comboBox_1_2_1_1.getSelectedItem());
 		}
 		return msg;
 	}
