@@ -7,6 +7,7 @@ public class OrderData {
 
 	private int orderNumber;
 	private int userID;
+	private int travelCode;
 	private int totalPrice;
 	
 	private int numberOfAdults;
@@ -47,6 +48,22 @@ public class OrderData {
 	 */
 	public void setUserID(int userID) {
 		this.userID = userID;
+	}
+	
+	// travelCode
+	
+	/** Getter of travelCode.
+	 * @return travelCode, Integer
+	 */
+	public int getTravelCode() {
+		return travelCode;
+	}
+
+	/** Setter of travelCode.
+	 * @param travelCode, Integer
+	 */
+	public void setTravelCode(int travelCode) {
+		this.travelCode = travelCode;
 	}
 	
 	// totalPrice

@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import st1.OrderData;
-
 
 public class OrderDataHandler {
 	
@@ -39,6 +37,7 @@ public class OrderDataHandler {
 		String SQ = "CREATE TABLE IF NOT EXISTS " + OrderDataHandler.getTableName()
         	+ "(order_number       int,"
         	+ " user_ID            int,"
+        	+ " travel_code        int,"
         	+ " start_date        text,"
         	+ " end_date          text,"
         	+ " total_price        int,"
@@ -139,8 +138,8 @@ public class OrderDataHandler {
 		String tbName = OrderDataHandler.getTableName();
 		
 		String SQ = "INSERT INTO " + tbName
-			+ " (order_number, user_ID, start_date, end_date, total_price, num_adults, num_children, num_babies)"
-			+ "  SELECT * FROM (SELECT ? as c1, ? as c2, ? as c3, ? as c4, ? as c5, ? as c6, ? as c7, ? as c8) AS tmp"
+			+ " (order_number, user_ID, travel_code, start_date, end_date, total_price, num_adults, num_children, num_babies)"
+			+ "  SELECT * FROM (SELECT ? as c1, ? as c2, ? as c3, ? as c4, ? as c5, ? as c6, ? as c7, ? as c8, ? as c9) AS tmp"
 			+ " WHERE NOT EXISTS (SELECT order_number FROM " + tbName + " WHERE order_number = ?) LIMIT 1";
 		
 		Connection con = null;
@@ -152,13 +151,14 @@ public class OrderDataHandler {
 			stmt = con.prepareStatement(SQ);
 			stmt.setInt(1, od.getOrderNumber());
 			stmt.setInt(2, od.getUserID());
-			stmt.setString(3, od.getStartDate().toString());
-			stmt.setString(4, od.getEndDate().toString());
-			stmt.setInt(5, od.getTotalPrice());
-			stmt.setInt(6, od.getNumberOfAdults());
-			stmt.setInt(7, od.getNumberOfChildren());
-			stmt.setInt(8, od.getNumberOfBabies());
-			stmt.setInt(9, od.getOrderNumber());
+			stmt.setInt(3, od.getTravelCode());
+			stmt.setString(4, od.getStartDate().toString());
+			stmt.setString(5, od.getEndDate().toString());
+			stmt.setInt(6, od.getTotalPrice());
+			stmt.setInt(7, od.getNumberOfAdults());
+			stmt.setInt(8, od.getNumberOfChildren());
+			stmt.setInt(9, od.getNumberOfBabies());
+			stmt.setInt(10, od.getOrderNumber());
 			stmt.executeUpdate();
 			
 			if(stmt != null) stmt.close();
@@ -180,13 +180,15 @@ public class OrderDataHandler {
 	public static OrderData getOrderFromResultSet(ResultSet rs) throws SQLException {
 		
 		OrderData odt = new OrderData();
-		
+
 		rs.beforeFirst();
 		while(rs.next()) {
-			odt.setUserID(rs.getInt("user_ID"));
 			odt.setOrderNumber(rs.getInt("order_number"));
+			odt.setUserID(rs.getInt("user_ID"));
+			odt.setTravelCode(rs.getInt("travel_code"));
 			odt.setStartDate(rs.getDate("start_date").toLocalDate());
 			odt.setEndDate(rs.getDate("end_date").toLocalDate());
+			odt.setTotalPrice(rs.getInt("total_price"));
 			odt.setNumberOfAdults(rs.getInt("num_adults"));
 			odt.setNumberOfChildren(rs.getInt("num_children"));
 			odt.setNumberOfAdults(rs.getInt("num_babies"));
@@ -248,7 +250,7 @@ public class OrderDataHandler {
 		boolean res = false;
 		String tbName = OrderDataHandler.getTableName();
 		
-		String SQ = "UPDATE " + tbName + " SET start_date = ?, end_date = ?, total_price = ?,"
+		String SQ = "UPDATE " + tbName + " SET travel_code = ?, start_date = ?, end_date = ?, total_price = ?,"
 				+ " num_adults = ?, num_children = ?, num_babies = ?"
 				+ " WHERE user_ID = ? AND order_number = ?";
 		
@@ -260,15 +262,16 @@ public class OrderDataHandler {
 			
 			stmt = con.prepareStatement(SQ, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			
-			stmt.setString(1, od.getStartDate().toString());
-			stmt.setString(2, od.getEndDate().toString());
-			stmt.setInt(3, od.getTotalPrice());
-			stmt.setInt(4, od.getNumberOfAdults());
-			stmt.setInt(5, od.getNumberOfChildren());
-			stmt.setInt(6, od.getNumberOfBabies());
+			stmt.setInt(1, od.getTravelCode());
+			stmt.setString(2, od.getStartDate().toString());
+			stmt.setString(3, od.getEndDate().toString());
+			stmt.setInt(4, od.getTotalPrice());
+			stmt.setInt(5, od.getNumberOfAdults());
+			stmt.setInt(6, od.getNumberOfChildren());
+			stmt.setInt(7, od.getNumberOfBabies());
 			
-			stmt.setInt(7, od.getUserID());
-			stmt.setInt(8, od.getOrderNumber());
+			stmt.setInt(8, od.getUserID());
+			stmt.setInt(9, od.getOrderNumber());
 			
 			stmt.executeUpdate();
 			

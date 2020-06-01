@@ -12,6 +12,7 @@ public class TourData {
 	private LocalDate endDate;
 	private int upperBound;
 	private int lowerBound;
+	private int peopleCount;
 	
 
 	/** Getter of title.
@@ -161,5 +162,18 @@ public class TourData {
 		this.lowerBound = lowerBound;
 	}
 	
+	/** Getter of peopleCount.
+	 * @return peopleCount, Integer
+	 */
+	public int getPeopleCount() {
+		return peopleCount;
+	}
+
+	/** Setter of peopleCount.
+	 * @param peopleCount, Integer
+	 */
+	public void setPeopleCount(int peopleCount) {
+		this.peopleCount = peopleCount;
+	}
 	
 }

@@ -38,6 +38,7 @@ public class TourDataHandler {
 				td.setEndDate(rs.getDate("end_date").toLocalDate());
 				td.setLowerBound(rs.getInt("lower_bound"));
 				td.setUpperBound(rs.getInt("upper_bound"));
+				td.setPeopleCount(rs.getInt("people_count"));
 				tours.add(td);
 			}
 			
@@ -52,9 +53,9 @@ public class TourDataHandler {
 	
 	/** Gets result from database according to travelCode and date.
 	 * @param travelCode Integer
-	 * @param year ArrayList
-	 * @param month ArrayList
-	 * @param day ArrayList
+	 * @param year Integer
+	 * @param month Integer
+	 * @param day Integer
 	 * @return ArrayList of TourData
 	 */
 	public static ArrayList<TourData> getResultFromDatabase(int travelCode, int year, int month, int day) {
@@ -138,6 +139,76 @@ public class TourDataHandler {
 		}
 		
 		return tourDataList;
+	}
+	
+	
+	/** Change peopleCount in database according to travelCode and date info.
+	 * @param travelCode Integer
+	 * @param year Integer
+	 * @param month Integer
+	 * @param day Integer
+	 * @param peopleCount Integer
+	 * @return Boolean. True if succeeded.
+	 */
+	public static boolean changePeopleCount(int travelCode, int year, int month, int day, int peopleCount) {
+		
+		boolean res = false;
+		
+		String d = String.format("%04d-%02d-%02d", year, month, day);
+		
+		String SQ = "UPDATE trip_data SET people_count = ? "
+				+ " WHERE travel_code = ? AND start_date = ?";
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			con = DB_Connection.getConnection();
+			
+			stmt = con.prepareStatement(SQ, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			
+			stmt.setInt(1, peopleCount);
+			stmt.setInt(2, travelCode);
+			stmt.setString(3, d);
+			
+			stmt.executeUpdate();
+			
+			if(stmt != null) stmt.close();
+			if(con != null) con.close();
+		}
+		catch(Exception e) {
+			System.err.print(e);
+		}
+		
+		res = true;
+		return res;
+	}
+	
+	
+	/** Set all peopleCount to zero in database.
+	 * @return Boolean. True if succeeded.
+	 */
+	public static boolean setAllPeopleCountToZero() {
+		
+		boolean res = false;
+		String SQ = "UPDATE trip_data SET people_count = 0";
+		
+		Connection con = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			con = DB_Connection.getConnection();
+			stmt = con.prepareStatement(SQ, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			stmt.executeUpdate();
+			if(stmt != null) stmt.close();
+			if(con != null) con.close();
+		}
+		catch(Exception e) {
+			System.err.print(e);
+		}
+		
+		res = true;
+		return res;
 	}
 	
 }

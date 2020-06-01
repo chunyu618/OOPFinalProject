@@ -32,7 +32,8 @@ public class CsvToSql {
 					"	start_date text,\n" + 
 					"	end_date text,\n" + 
 					"	lower_bound int,\n" + 
-					"	upper_bound int\n" + 
+					"	upper_bound int,\n" + 
+					"	people_count int\n" + 
 					");\n\n");
 			
 			String line = null;
@@ -63,6 +64,7 @@ public class CsvToSql {
 					else output.write(",'" + data.get(i) + "'");
 				}
 				
+				output.write(",0");
 				output.write(");\n");
 				line = input.readLine();
 			}
@@ -90,8 +92,9 @@ public class CsvToSql {
 	 * @param args: command line arguments
 	 */
 	public static void main (String[] args) {
-		String csv_file = System.getProperty("user.dir") + "\\src\\trip_data_all.csv";
-		String csv_sql = System.getProperty("user.dir") + "\\src\\trip_data.sql";
+		
+		String csv_file = "your_directory/trip_data_all.csv";
+		String csv_sql = "your_directory/trip_data.sql";
 		
 		if (CsvToSql.exist(csv_file)) {
 			System.out.println("csv_file exists");
