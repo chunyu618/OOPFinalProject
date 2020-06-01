@@ -44,6 +44,9 @@ public class Find extends JFrame {
 	
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
+	private JScrollPane scrollPane;
+	
+	private String[] columns;
 
 	/**
 	 * Launch the application.
@@ -74,7 +77,7 @@ public class Find extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("\u76EE\u7684\u5730 :");
-		lblNewLabel.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
+		lblNewLabel.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
 		lblNewLabel.setBounds(10, 10, 58, 15);
 		contentPane.add(lblNewLabel);
 		
@@ -87,7 +90,7 @@ public class Find extends JFrame {
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u51FA\u767C\u65E5\u671F :");
-		lblNewLabel_1.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
+		lblNewLabel_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(10, 39, 66, 15);
 		contentPane.add(lblNewLabel_1);
 		
@@ -116,7 +119,7 @@ public class Find extends JFrame {
 		contentPane.add(comboBox_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("\u5E74");
-		lblNewLabel_2.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
+		lblNewLabel_2.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
 		lblNewLabel_2.setBounds(156, 39, 19, 15);
 		contentPane.add(lblNewLabel_2);
 		
@@ -145,7 +148,7 @@ public class Find extends JFrame {
 		contentPane.add(comboBox_1_1);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("\u6708");
-		lblNewLabel_2_1.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
+		lblNewLabel_2_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
 		lblNewLabel_2_1.setBounds(238, 39, 19, 15);
 		contentPane.add(lblNewLabel_2_1);
 		
@@ -155,7 +158,7 @@ public class Find extends JFrame {
 		contentPane.add(comboBox_1_1_1);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("\u65E5  \u5230");
-		lblNewLabel_2_1_1.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
+		lblNewLabel_2_1_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
 		lblNewLabel_2_1_1.setBounds(320, 39, 43, 15);
 		contentPane.add(lblNewLabel_2_1_1);
 		
@@ -167,20 +170,19 @@ public class Find extends JFrame {
 		btnNewButton_1.setBounds(1291, 330, 85, 23);
 		contentPane.add(btnNewButton_1);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 64, 1366, 256);
 		contentPane.add(scrollPane);
 
-
 		//sample
-		String[] columns = new String[] {
-				"ï¿½ï¿½{", "ï¿½ï¿½ï¿½ï¿½", "ï¿½Ì¤Ö¥Xï¿½Î¤Hï¿½ï¿½", "ï¿½Ì¦hï¿½Xï¿½Î¤Hï¿½ï¿½", "ï¿½Xï¿½oï¿½ï¿½ï¿½", "ï¿½^ï¿½xï¿½ï¿½Fï¿½ï¿½ï¿½"
+		columns = new String[] {
+				"¦æµ{", "»ù®æ", "³Ì¤Ö¥X¹Î¤H¼Æ", "³Ì¦h¥X¹Î¤H¼Æ", "¥Xµo¤é´Á", "¦^¥x©è¹F¤é´Á"
 	        };
-	        
+
 	    Object[][] data = new Object[][] {
-	            {"[ï¿½Kï¿½ï¿½É­ï¿½ï¿½Cï¿½yï¿½y]ï¿½@ï¿½É¤ï¿½Æ¿ï¿½~ï¿½ï¿½ï¿½xï¿½BCNNï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Eï¿½ï¿½ï¿½tÃ¹ï¿½Ò¥vï¿½ï¿½+ï¿½yï¿½Mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½Ì¤tï¿½}ï¿½mÃ¸ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½BBIFFï¿½sï¿½ï¿½+ï¿½nï¿½ï¿½ï¿½}ï¿½Êªï¿½ï¿½Ö¤ï¿½ï¿½ï¿½<ï¿½tï¿½|>", 1, "John", 40.0, false , "2020-1-1"},
-	            {"ï¿½iï¿½ï¿½ï¿½ï¿½ß®È¦ï¿½jï¿½ï¿½ï¿½Ê±iï¿½aï¿½É¡ã««ï¿½ï¿½ï¿½bï¿½rï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½dï¿½~ï¿½pï¿½ï¿½Bï¿½Ñªï¿½ï¿½sï¿½Bï¿½Kï¿½aï¿½É¡Bï¿½ï¿½Ä¥jï¿½ï¿½ï¿½Bï¿½Éµï¿½ï¿½ï¿½ß«~ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Ø¾yï¿½Oï¿½ï¿½ï¿½qVIPï¿½y)[ï¿½tï¿½|]",2, "Rambo", 70.0, false, "2020-1-2" },
-	            {"ï¿½Ó¥hï¿½ï¿½ï¿½ï¿½",3, "Zorro", 60.0, true , "2020-1-3"},
+	            {"[¬KÄå¯É­¸¹C°y¼y]¥@¬É¤å¤Æ¿ò²£~¦ò°ê¦x¡BCNNµû¿ï½àÄå±ÀÂË~§E¦õ¤tÃ¹°Ò¥v¾ô+¼y©M¤õ¨®¯¸¡B¥Ì¤t¬}±mÃ¸¾Àµe§ø¡BBIFF¼s³õ+«n®ú¬}ÁÊª«¼Ö¤­¤é<§tµ|>", 1, "John", 40.0, false , "2020-1-1"},
+	            {"¡i¸ÑÂê¤ß®È¦æ¡j²²ÅÊ±i®a¬É¡ã««±¾¦bÂr¥¬¤Wªº¤d¦~¤pÂí¡B¤Ñªù¤s¡B°K®a¬É¡B»ñ°Ä¥j«°¡B¤Éµ¥¨â±ß«~µP¤­¡¹¤»¤é(ÃØ¾y¤O´ð¦è¨qVIP®y)[§tµ|]",2, "Rambo", 70.0, false, "2020-1-2" },
+	            {"¨Ó¥h°ª¶¯",3, "Zorro", 60.0, true , "2020-1-3"},
 	        };
 	    //
 		table = new JTable(data, columns);
@@ -212,7 +214,7 @@ public class Find extends JFrame {
 		contentPane.add(comboBox_1_2);
 		
 		JLabel lblNewLabel_2_2 = new JLabel("\u5E74");
-		lblNewLabel_2_2.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
+		lblNewLabel_2_2.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
 		lblNewLabel_2_2.setBounds(441, 39, 19, 15);
 		contentPane.add(lblNewLabel_2_2);
 		
@@ -241,7 +243,7 @@ public class Find extends JFrame {
 		contentPane.add(comboBox_1_1_2);
 		
 		JLabel lblNewLabel_2_1_2 = new JLabel("\u6708");
-		lblNewLabel_2_1_2.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
+		lblNewLabel_2_1_2.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
 		lblNewLabel_2_1_2.setBounds(523, 39, 19, 15);
 		contentPane.add(lblNewLabel_2_1_2);
 		
@@ -251,7 +253,7 @@ public class Find extends JFrame {
 		contentPane.add(comboBox_1_1_1_1);
 		
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("\u65E5 \u4E4B\u9593");
-		lblNewLabel_2_1_1_1.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
+		lblNewLabel_2_1_1_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
 		lblNewLabel_2_1_1_1.setBounds(605, 39, 47, 15);
 		contentPane.add(lblNewLabel_2_1_1_1);
 	}
@@ -285,5 +287,10 @@ public class Find extends JFrame {
 		msg += String.valueOf(comboBox_1_1_2.getSelectedItem()) + " ";
 		msg += String.valueOf(comboBox_1_1_1_1.getSelectedItem());
 		return msg;
+	}
+	public void setTable(Object[][] tmp) {
+		table = new JTable(tmp, columns);
+		resizeColumnWidth(table);
+		scrollPane.setViewportView(table);
 	}
 }
