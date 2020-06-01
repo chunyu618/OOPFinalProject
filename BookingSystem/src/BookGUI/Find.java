@@ -77,7 +77,7 @@ public class Find extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("\u76EE\u7684\u5730 :");
-		lblNewLabel.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
+		lblNewLabel.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
 		lblNewLabel.setBounds(10, 10, 58, 15);
 		contentPane.add(lblNewLabel);
 		
@@ -90,7 +90,7 @@ public class Find extends JFrame {
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel_1 = new JLabel("\u51FA\u767C\u65E5\u671F :");
-		lblNewLabel_1.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
+		lblNewLabel_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(10, 39, 66, 15);
 		contentPane.add(lblNewLabel_1);
 		
@@ -115,12 +115,12 @@ public class Find extends JFrame {
 			}
 		});
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"2020", "2021"}));
-		comboBox_1.setBounds(72, 35, 88, 23);
+		comboBox_1.setBounds(88, 37, 88, 23);
 		contentPane.add(comboBox_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("\u5E74");
-		lblNewLabel_2.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
-		lblNewLabel_2.setBounds(156, 39, 19, 15);
+		lblNewLabel_2.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(186, 39, 19, 15);
 		contentPane.add(lblNewLabel_2);
 		
 		comboBox_1_1 = new JComboBox();
@@ -144,22 +144,22 @@ public class Find extends JFrame {
 			}
 		});
 		comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
-		comboBox_1_1.setBounds(175, 35, 68, 23);
+		comboBox_1_1.setBounds(215, 37, 68, 23);
 		contentPane.add(comboBox_1_1);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("\u6708");
-		lblNewLabel_2_1.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
-		lblNewLabel_2_1.setBounds(238, 39, 19, 15);
+		lblNewLabel_2_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
+		lblNewLabel_2_1.setBounds(293, 39, 19, 15);
 		contentPane.add(lblNewLabel_2_1);
 		
 		comboBox_1_1_1 = new JComboBox();
 		comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-		comboBox_1_1_1.setBounds(267, 35, 43, 23);
+		comboBox_1_1_1.setBounds(322, 37, 68, 23);
 		contentPane.add(comboBox_1_1_1);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("\u65E5  \u5230");
-		lblNewLabel_2_1_1.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
-		lblNewLabel_2_1_1.setBounds(320, 39, 43, 15);
+		lblNewLabel_2_1_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
+		lblNewLabel_2_1_1.setBounds(408, 39, 43, 15);
 		contentPane.add(lblNewLabel_2_1_1);
 		
 		btnNewButton = new JButton("\u78BA\u5B9A");
@@ -176,7 +176,7 @@ public class Find extends JFrame {
 
 		//sample
 		columns = new String[] {
-				"è¡Œç¨‹", "åƒ¹æ ¼", "æœ€ä½å‡ºåœ˜äººæ•¸", "æœ€é«˜å‡ºåœ˜äººæ•¸", "å‡ºç™¼æ—¥æœŸ", "å›å°æŠµé”æ—¥æœŸ"
+				"¦æµ{", "»ù®æ", "³Ì¤Ö¥X¹Î¤H¼Æ", "³Ì¦h¥X¹Î¤H¼Æ", "¥Xµo¤é´Á", "¦^¥x©è¹F¤é´Á"
 	        };
 
 	    Object[][] data = new Object[0][6];
@@ -205,12 +205,12 @@ public class Find extends JFrame {
 			}
 		});
 		comboBox_1_2.setModel(new DefaultComboBoxModel(new String[] {"2020", "2021"}));
-		comboBox_1_2.setBounds(373, 35, 58, 23);
+		comboBox_1_2.setBounds(461, 37, 88, 23);
 		contentPane.add(comboBox_1_2);
 		
 		JLabel lblNewLabel_2_2 = new JLabel("\u5E74");
-		lblNewLabel_2_2.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
-		lblNewLabel_2_2.setBounds(441, 39, 19, 15);
+		lblNewLabel_2_2.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
+		lblNewLabel_2_2.setBounds(559, 39, 19, 15);
 		contentPane.add(lblNewLabel_2_2);
 		
 		comboBox_1_1_2 = new JComboBox();
@@ -234,22 +234,22 @@ public class Find extends JFrame {
 			}
 		});
 		comboBox_1_1_2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
-		comboBox_1_1_2.setBounds(470, 35, 43, 23);
+		comboBox_1_1_2.setBounds(588, 37, 68, 23);
 		contentPane.add(comboBox_1_1_2);
 		
 		JLabel lblNewLabel_2_1_2 = new JLabel("\u6708");
-		lblNewLabel_2_1_2.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
-		lblNewLabel_2_1_2.setBounds(523, 39, 19, 15);
+		lblNewLabel_2_1_2.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
+		lblNewLabel_2_1_2.setBounds(666, 39, 19, 15);
 		contentPane.add(lblNewLabel_2_1_2);
 		
 		comboBox_1_1_1_1 = new JComboBox();
 		comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-		comboBox_1_1_1_1.setBounds(552, 35, 43, 23);
+		comboBox_1_1_1_1.setBounds(695, 37, 68, 23);
 		contentPane.add(comboBox_1_1_1_1);
 		
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("\u65E5 \u4E4B\u9593");
-		lblNewLabel_2_1_1_1.setFont(new Font("ï¿½sï¿½Ó©ï¿½ï¿½ï¿½", Font.PLAIN, 14));
-		lblNewLabel_2_1_1_1.setBounds(605, 39, 47, 15);
+		lblNewLabel_2_1_1_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
+		lblNewLabel_2_1_1_1.setBounds(773, 39, 47, 15);
 		contentPane.add(lblNewLabel_2_1_1_1);
 	}
 	public void resizeColumnWidth(JTable table) {
