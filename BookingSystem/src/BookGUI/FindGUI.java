@@ -7,9 +7,11 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 import BookGUI.IndexGUI.BackListener;
+import failure_exception.NoTripException;
+import trip_function.Policy;
+import trip_function.SearchTrip;
 
 import java.io.*;
-import java.util.StringTokenizer; 
 
 /**
  * The GUI used in IndexGUI.
@@ -50,16 +52,29 @@ public class FindGUI {
             	return;
             }
             else {
-            	/*
-            	 * Do things here
-            	 */
-            	String result = "Oppai\n(.)(.)";
-            	frame.setVisible(false);
-            	OutputGUI gui =  new OutputGUI(result);
-            	gui.run();
-            	JButton b = gui.getBackButton();
-                b.addActionListener(new ErrorListener());
-            	return;
+            	String[] tmp = msg.split(" ");
+            	String dest = tmp[0];
+            	Calendar c1 = new GregorianCalendar(Integer.parseInt(tmp[1]), Integer.parseInt(tmp[2]), Integer.parseInt(tmp[3]));
+            	Calendar c2 = new GregorianCalendar(Integer.parseInt(tmp[4]), Integer.parseInt(tmp[5]), Integer.parseInt(tmp[6]));
+            	
+            	Policy policy = new Policy(dest, c1, c2);
+            	try{
+            		ArrayList<Object[]> tmpList = SearchTrip.searchByPolicy(policy);
+            		Object[][] tmpArray = new Object[tmpList.size()][6];
+            		for(int i = 0; i < tmpList.size(); i++){
+            			tmpArray[i] = tmpList.get(i);
+            		}
+            		frame.setTable(tmpArray);
+            		return;
+            	}
+            	catch(NoTripException e){
+            		frame.setVisible(false);
+            		OutputGUI gui = new OutputGUI("無符合行程");
+            		gui.run();
+            		JButton b = gui.getBackButton();
+            		b.addActionListener(new ErrorListener());
+            		return;
+            	}
             }
         }
     }
