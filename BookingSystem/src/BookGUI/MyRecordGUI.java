@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import BookGUI.CancelGUI.ErrorListener;
 import BookGUI.FindGUI.BackListener;
 import BookGUI.FindGUI.ConfirmListener;
+import failure_exception.NoOrderException;
+import trip_function.SearchOrder;
 
 /**
  * The GUI used in IndexGUI.
@@ -48,12 +50,19 @@ public class MyRecordGUI {
             	return;
             }
             else {
-            	/*
-            	 * Do things here
-            	 */
-            	String result = "Oppai\n(.)(.)";
+            	String[] tmp = msg.split(" ");
+            	int userID = Integer.parseInt(tmp[0]);
+            	int orderNumber = Integer.parseInt(tmp[1]);
+            	System.out.printf("%d %d\n", userID, orderNumber);
+            	String revMsg = null;
+            	try{
+            		revMsg = SearchOrder.search(userID, orderNumber);
+            	}
+            	catch(NoOrderException e){
+            		revMsg = "查無此訂單";
+            	}         
             	frame.setVisible(false);
-            	OutputGUI gui =  new OutputGUI(result);
+            	OutputGUI gui =  new OutputGUI(revMsg);
             	gui.run();
             	JButton b = gui.getBackButton();
                 b.addActionListener(new ErrorListener());

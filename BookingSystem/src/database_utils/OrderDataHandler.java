@@ -191,7 +191,7 @@ public class OrderDataHandler {
 			odt.setTotalPrice(rs.getInt("total_price"));
 			odt.setNumberOfAdults(rs.getInt("num_adults"));
 			odt.setNumberOfChildren(rs.getInt("num_children"));
-			odt.setNumberOfAdults(rs.getInt("num_babies"));
+			odt.setNumberOfBabies(rs.getInt("num_babies"));
 		}		
 		
 		return odt;

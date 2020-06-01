@@ -22,6 +22,7 @@ import java.util.Set;
 public class GetTrvaelingCode {
 	public static Map<String, Integer> map = convert();
 	
+	
 	private static Map<String, Integer> convert() {
 		//System.out.println("start convert!!");
 		Map<String, Integer> map = new HashMap<String, Integer>();

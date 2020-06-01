@@ -28,9 +28,9 @@ public class SearchTrip {
 	 * @return A list of suitable trips
 	 * @throws NoTripException
 	 */
-	public static ArrayList<TourData> searchByPolicy(Policy policy) throws NoTripException{
+	public static ArrayList<Object[]> searchByPolicy(Policy policy) throws NoTripException{
 		// convert destination to travel code.
-		int travel_code = map.get(policy.getTitle());
+		int travel_code = map.get(policy.getDestination());
 		//System.out.println("year : " + policy.getStartDate().get(Calendar.YEAR) + "month : " + policy.getStartDate().get(Calendar.MONTH) + "day : " + policy.getStartDate().get(Calendar.DAY_OF_MONTH));
 		
 		
@@ -59,7 +59,20 @@ public class SearchTrip {
 		if(a == null){
 			throw new NoTripException();
 		}
-		return a;
+		
+		ArrayList<Object[]> rev = new ArrayList<Object[]>();
+		for(TourData td : a){
+			String[] tmp = new String[7];
+			tmp[0] = td.getTitle();
+			tmp[1] = td.getPrice() + "";
+			tmp[2] = td.getLowerBound() + "";
+			tmp[3] = td.getUpperBound() + "";
+			tmp[4] = td.getStartDateYear() + "-" + td.getStartDateMonthValue() + "-" + td.getStartDateDay();
+			tmp[5] = td.getEndDateYear() + "-" + td.getEndDateMonthValue() + "-" + td.getEndDateDay();
+			tmp[6] = td.getTravelCode() + "";
+			rev.add(tmp);
+		}
+		return rev;
 	}
 	
 

@@ -10,7 +10,7 @@ import database_utils.TourDataHandler;
  */
 public class Demo {
     public static void main(String[] args) {
-    	TourDataHandler.setAllPeopleCountToZero();
+    	//TourDataHandler.setAllPeopleCountToZero();
     	OrderDataHandler.createOrderDataTable();
     	IndexGUI gui = new IndexGUI();
         gui.run();

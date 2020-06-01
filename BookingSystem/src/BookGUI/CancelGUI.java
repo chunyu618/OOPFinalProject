@@ -10,6 +10,9 @@ import javax.swing.JButton;
 import BookGUI.FindGUI.BackListener;
 import BookGUI.FindGUI.ConfirmListener;
 import BookGUI.ReserveGUI.ErrorListener;
+import failure_exception.InsufficientPeopleException;
+import failure_exception.NoOrderException;
+import trip_function.ChangeOrder;
 
 /**
  * The GUI used in IndexGUI.
@@ -50,12 +53,37 @@ public class CancelGUI {
             	return;
             }
             else {
-            	/*
-            	 * Do things here
-            	 */
-            	String result = "Oppai\n(.)(.)";
+            	String revMsg = null;
+            	String[] tmp = msg.split(" ");
+            	if(tmp[2].equals("Cancel")){
+            		try{
+            			int userID = Integer.parseInt(tmp[0]);
+            			int orderNumber = Integer.parseInt(tmp[1]);
+            			ChangeOrder.cancel(userID, orderNumber);
+            			revMsg = "退訂成功，已取消您的訂購紀錄";
+            		}
+            		catch(NoOrderException e){
+            			revMsg = "退訂失敗，此訂單不存在";
+            		}
+            	}
+            	else{
+            		try{
+            			int userID = Integer.parseInt(tmp[0]);
+            			int orderNumber = Integer.parseInt(tmp[1]);
+            			int adult = Integer.parseInt(tmp[3]);
+            			int child = Integer.parseInt(tmp[4]);
+            			ChangeOrder.change(userID, orderNumber, adult, child);
+            			revMsg = "修改成功，已將您的訂購更改為大人" + adult + "人，小孩" + child + "人";
+            		}
+            		catch(NoOrderException e){
+            			revMsg = "修改失敗，此訂單不存在";
+            		}
+            		catch(InsufficientPeopleException e){
+            			revMsg = "修改失敗，超過人數上限";
+            		}
+            	}
             	frame.setVisible(false);
-            	OutputGUI gui =  new OutputGUI(result);
+            	OutputGUI gui =  new OutputGUI(revMsg);
             	gui.run();
             	JButton b = gui.getBackButton();
                 b.addActionListener(new ErrorListener());

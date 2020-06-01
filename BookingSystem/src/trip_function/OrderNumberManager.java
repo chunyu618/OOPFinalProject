@@ -23,7 +23,9 @@ public class OrderNumberManager {
 	 * @param td
 	 * @return Order Number
 	 */
-	public static int newOrder(int userID, TourData td){
+	public static int newOrder(int userID, int travel_code, 
+								int year1, int month1, int date1, 
+								int year2, int month2, int date2){
 		// create a list if it's the first time this user make order.
 		if(!orders.containsKey(userID)){
 			ArrayList<Integer> list = new ArrayList<Integer>();
@@ -31,12 +33,9 @@ public class OrderNumberManager {
 		}
 		
 		// four elements to calculate order number.
-		Integer travel_code = map.get("馬達加斯加");
 		Integer user = userID;
-		String start = td.getStartDate().toString();
-		String end = td.getEndDate().toString();
 		
-		int orderNumber = countOrderNumber(travel_code, start, end, user);
+		int orderNumber = countOrderNumber(travel_code, year1, month1, date1, year2, month2, date2, user);
 		
 		// add this record.
 		orders.get(userID).add(orderNumber);
@@ -52,14 +51,13 @@ public class OrderNumberManager {
 	 * @param user
 	 * @return Order Number
 	 */
-	public static int countOrderNumber(Integer travel_code, String start, String end, Integer user){
-		String[] s = start.split("-");
-		String[] e = end.split("-");
+	public static int countOrderNumber(Integer travel_code, int year1, int month1, int date1, 
+										int year2, int month2, int date2, Integer user){
 		int tmp = 0;
-		tmp += Integer.parseInt(travel_code + s[0]) % MOD;
-		tmp += Integer.parseInt(s[1] + s[2]) % MOD;
-		tmp += Integer.parseInt(e[0] + e[1]) % MOD;
-		tmp += Integer.parseInt(e[2] + user) % MOD;
+		tmp += (travel_code + year1) % MOD;
+		tmp += (month1 + date1) % MOD;
+		tmp += (year2 + month2) % MOD;
+		tmp += (date2 + user) % MOD;
 		return tmp;
 		
 	}
