@@ -185,7 +185,7 @@ public class Cancel extends JFrame {
 		rdbtnNewRadioButton_1 = new JRadioButton("\u66F4\u6539\u70BA");
 		rdbtnNewRadioButton_1.addActionListener(new ChangeListener());
 		rdbtnNewRadioButton_1.setFont(new Font("新細明體", Font.PLAIN, 14));
-		rdbtnNewRadioButton_1.setBounds(10, 101, 69, 23);
+		rdbtnNewRadioButton_1.setBounds(10, 101, 85, 23);
 		contentPane.add(rdbtnNewRadioButton_1);
 		
 		btnNewButton = new JButton("\u78BA\u8A8D");
@@ -194,12 +194,12 @@ public class Cancel extends JFrame {
 		
 		comboBox_1_2_1 = new JComboBox();
 		comboBox_1_2_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"}));
-		comboBox_1_2_1.setBounds(87, 101, 68, 23);
+		comboBox_1_2_1.setBounds(101, 102, 68, 23);
 		contentPane.add(comboBox_1_2_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("\u4EBA");
 		lblNewLabel_1_1.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_1_1.setBounds(165, 105, 22, 15);
+		lblNewLabel_1_1.setBounds(179, 105, 22, 15);
 		contentPane.add(lblNewLabel_1_1);
 		
 		lblNewLabel_2 = new JLabel("Hint...");
