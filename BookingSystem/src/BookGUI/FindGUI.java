@@ -60,7 +60,7 @@ public class FindGUI {
             	Policy policy = new Policy(dest, c1, c2);
             	try{
             		ArrayList<Object[]> tmpList = SearchTrip.searchByPolicy(policy);
-            		Object[][] tmpArray = new Object[tmpList.size()][6];
+            		Object[][] tmpArray = new Object[tmpList.size()][7];
             		for(int i = 0; i < tmpList.size(); i++){
             			tmpArray[i] = tmpList.get(i);
             		}

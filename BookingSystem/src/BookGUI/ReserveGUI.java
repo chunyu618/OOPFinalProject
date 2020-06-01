@@ -9,6 +9,8 @@ import javax.swing.event.*;
 import BookGUI.FindGUI.BackListener;
 import BookGUI.FindGUI.ConfirmListener;
 import BookGUI.FindGUI.ErrorListener;
+import failure_exception.*;
+import trip_function.OrderTrip;
 
 import java.io.*;
 
@@ -51,12 +53,33 @@ public class ReserveGUI {
             	return;
             }
             else {
-            	/*
-            	 * Do things here
-            	 */
-            	String result = "Oppai\n(.)(.)";
+            	//msg = userID + year1 + month1 + date1 + year2 + month2 + date2 + adult + child + travel_code
+            	String[] tmp = msg.split(" ");
+            	String revMsg = null;
+            	try{
+            		revMsg = OrderTrip.orderTrip(
+            							Integer.parseInt(tmp[0]), 
+            							Integer.parseInt(tmp[9]), 
+            							Integer.parseInt(tmp[7]),
+            							Integer.parseInt(tmp[8]),
+            							Integer.parseInt(tmp[1]),
+            							Integer.parseInt(tmp[2]),
+            							Integer.parseInt(tmp[3]),
+            							Integer.parseInt(tmp[4]),
+            							Integer.parseInt(tmp[5]),
+            							Integer.parseInt(tmp[6]));           	
+            	}
+            	catch(NoTripException e){
+            		revMsg = "失敗，無符合行程";
+            	}
+            	catch(MoreThanOneResultException e){
+            		revMsg = "失敗，超過一個符合行程";
+            	}
+            	catch(InsufficientPeopleException e){
+            		revMsg = "失敗， 剩餘人數不足";
+            	}
             	frame.setVisible(false);
-            	OutputGUI gui =  new OutputGUI(result);
+            	OutputGUI gui =  new OutputGUI(revMsg);
             	gui.run();
             	JButton b = gui.getBackButton();
                 b.addActionListener(new ErrorListener());
