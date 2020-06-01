@@ -46,6 +46,7 @@ public class Reserve extends JFrame {
 	private JLabel lblNewLabel_2_4;
 	private JComboBox comboBox_1_2_2;
 	private JLabel lblNewLabel_2_2_2;
+	private JTextField textField_1;
 	
 
 	/**
@@ -70,7 +71,7 @@ public class Reserve extends JFrame {
 	public Reserve() {
 		setTitle("\u9810\u7D04\u884C\u7A0B\r\n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 200);
+		setBounds(100, 100, 550, 250);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -230,22 +231,41 @@ public class Reserve extends JFrame {
 		textField = new JTextField();
 		textField.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
+				boolean flag = false;
 				String msg = textField.getText();
 				StringTokenizer raw = new StringTokenizer(msg);
 				if (raw.hasMoreTokens()) {
 					String tmp = raw.nextToken();
 					if(raw.hasMoreTokens()) {
-						lblNewLabel_3.setText("Hint...請輸入一個整數");
+						flag = true;
 					}
 					else {
 						try {
 							int ID = Integer.parseInt(tmp);
-							lblNewLabel_3.setText("Hint...");
 						}
 						catch(Exception ex) {
-							lblNewLabel_3.setText("Hint...請輸入一個整數");
+							flag = true;
 						}
 					}
+				}
+				msg = textField_1.getText();
+				raw = new StringTokenizer(msg);
+				if (raw.hasMoreTokens()) {
+					String tmp = raw.nextToken();
+					if(raw.hasMoreTokens()) {
+						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
+					}
+				}
+				if(flag == true) {
+					lblNewLabel_3.setText("Hint...請輸入一個整數");
 				}
 				else {
 					lblNewLabel_3.setText("Hint...");
@@ -272,7 +292,7 @@ public class Reserve extends JFrame {
 		contentPane.add(lblNewLabel_2_2_1);
 		
 		btnNewButton = new JButton("\u78BA\u8A8D");
-		btnNewButton.setBounds(441, 93, 85, 23);
+		btnNewButton.setBounds(441, 180, 85, 23);
 		contentPane.add(btnNewButton);
 		
 		btnNewButton_1 = new JButton("\u8FD4\u56DE");
@@ -280,7 +300,7 @@ public class Reserve extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		lblNewLabel_3 = new JLabel("Hint...");
-		lblNewLabel_3.setBounds(10, 122, 329, 15);
+		lblNewLabel_3.setBounds(10, 188, 329, 15);
 		contentPane.add(lblNewLabel_3);
 		
 		lblNewLabel_2_3 = new JLabel("\u5927\u4EBA");
@@ -302,6 +322,59 @@ public class Reserve extends JFrame {
 		lblNewLabel_2_2_2.setFont(new Font("新細明體", Font.PLAIN, 14));
 		lblNewLabel_2_2_2.setBounds(361, 97, 19, 15);
 		contentPane.add(lblNewLabel_2_2_2);
+		
+		JLabel lblNewLabel_4 = new JLabel("\u884C\u7A0B\u4EE3\u78BC :");
+		lblNewLabel_4.setFont(new Font("新細明體", Font.PLAIN, 14));
+		lblNewLabel_4.setBounds(10, 125, 67, 15);
+		contentPane.add(lblNewLabel_4);
+		
+		textField_1 = new JTextField();
+		textField_1.addCaretListener(new CaretListener() {
+			public void caretUpdate(CaretEvent e) {
+				boolean flag = false;
+				String msg = textField.getText();
+				StringTokenizer raw = new StringTokenizer(msg);
+				if (raw.hasMoreTokens()) {
+					String tmp = raw.nextToken();
+					if(raw.hasMoreTokens()) {
+						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
+					}
+				}
+				msg = textField_1.getText();
+				raw = new StringTokenizer(msg);
+				if (raw.hasMoreTokens()) {
+					String tmp = raw.nextToken();
+					if(raw.hasMoreTokens()) {
+						flag = true;
+					}
+					else {
+						try {
+							int ID = Integer.parseInt(tmp);
+						}
+						catch(Exception ex) {
+							flag = true;
+						}
+					}
+				}
+				if(flag == true) {
+					lblNewLabel_3.setText("Hint...請輸入一個整數");
+				}
+				else {
+					lblNewLabel_3.setText("Hint...");
+				}
+			}
+		});
+		textField_1.setColumns(10);
+		textField_1.setBounds(87, 122, 237, 21);
+		contentPane.add(textField_1);
 	}
 	public JButton getBack() {
 		return btnNewButton_1;
@@ -319,7 +392,8 @@ public class Reserve extends JFrame {
 		msg += String.valueOf(comboBox_1_1_2.getSelectedItem()) + " ";
 		msg += String.valueOf(comboBox_1_1_1_1.getSelectedItem()) + " ";
 		msg += String.valueOf(comboBox_1_2_1.getSelectedItem()) + " ";
-		msg += String.valueOf(comboBox_1_2_2.getSelectedItem());
+		msg += String.valueOf(comboBox_1_2_2.getSelectedItem()) + " ";
+		msg += textField_1.getText();
 		return msg;
 	}
 }

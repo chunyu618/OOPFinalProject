@@ -92,6 +92,13 @@ public class ReserveGUI {
             d = Integer.parseInt(Day);
             String adult = raw.nextToken();
             String child = raw.nextToken();
+            String Tcode = raw.nextToken();
+            try {
+            	int tcode = Integer.parseInt(Tcode);
+            }
+            catch(Exception e) {
+            	return false;
+            }
             if (raw.hasMoreTokens()) return false;
             return true;
         }
