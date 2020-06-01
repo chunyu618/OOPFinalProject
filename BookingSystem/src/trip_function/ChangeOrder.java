@@ -31,12 +31,12 @@ public class ChangeOrder {
 															tmp.getStartDateMonthValue(), tmp.getStartDateDay());
 		System.out.printf("%d %d %d %d %d %d\n", td.get(0).getUpperBound(), td.get(0).getPeopleCount(), adult, child, tmp.getNumberOfAdults(), tmp.getNumberOfChildren());
 		if(td.get(0).getUpperBound() - td.get(0).getPeopleCount() >= (adult + child - tmp.getNumberOfAdults() - tmp.getNumberOfChildren())){
-			tmp.setNumberOfAdults(adult);
-			tmp.setNumberOfChildren(child);
-			OrderDataHandler.changeOrderData(tmp);
 			TourDataHandler.changePeopleCount(tmp.getTravelCode(), tmp.getStartDateYear(), 
 										tmp.getStartDateMonthValue(), tmp.getStartDateDay(), 
 										td.get(0).getPeopleCount() + adult + child - tmp.getNumberOfAdults() - tmp.getNumberOfChildren());
+			tmp.setNumberOfAdults(adult);
+			tmp.setNumberOfChildren(child);
+			OrderDataHandler.changeOrderData(tmp);
 		}	
 		else{
 			throw new InsufficientPeopleException();
