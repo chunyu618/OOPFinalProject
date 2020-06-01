@@ -70,7 +70,7 @@ public class Reserve extends JFrame {
 	public Reserve() {
 		setTitle("\u9810\u7D04\u884C\u7A0B\r\n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 200);
+		setBounds(100, 100, 550, 200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -107,12 +107,12 @@ public class Reserve extends JFrame {
 			}
 		});
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"2020", "2021"}));
-		comboBox_1.setBounds(88, 35, 58, 23);
+		comboBox_1.setBounds(88, 35, 88, 23);
 		contentPane.add(comboBox_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("\u5E74");
 		lblNewLabel_2.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2.setBounds(156, 39, 19, 15);
+		lblNewLabel_2.setBounds(186, 39, 19, 15);
 		contentPane.add(lblNewLabel_2);
 		
 		comboBox_1_1 = new JComboBox();
@@ -136,22 +136,22 @@ public class Reserve extends JFrame {
 			}
 		});
 		comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
-		comboBox_1_1.setBounds(185, 35, 43, 23);
+		comboBox_1_1.setBounds(215, 35, 68, 23);
 		contentPane.add(comboBox_1_1);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("\u6708");
 		lblNewLabel_2_1.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2_1.setBounds(238, 39, 19, 15);
+		lblNewLabel_2_1.setBounds(293, 39, 19, 15);
 		contentPane.add(lblNewLabel_2_1);
 		
 		comboBox_1_1_1 = new JComboBox();
 		comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-		comboBox_1_1_1.setBounds(267, 35, 43, 23);
+		comboBox_1_1_1.setBounds(322, 35, 68, 23);
 		contentPane.add(comboBox_1_1_1);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("\u65E5");
 		lblNewLabel_2_1_1.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2_1_1.setBounds(320, 39, 19, 15);
+		lblNewLabel_2_1_1.setBounds(400, 39, 19, 15);
 		contentPane.add(lblNewLabel_2_1_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("\u62B5\u53F0\u65E5\u671F :");
@@ -180,12 +180,12 @@ public class Reserve extends JFrame {
 			}
 		});
 		comboBox_1_2.setModel(new DefaultComboBoxModel(new String[] {"2020", "2021"}));
-		comboBox_1_2.setBounds(88, 64, 58, 23);
+		comboBox_1_2.setBounds(88, 64, 88, 23);
 		contentPane.add(comboBox_1_2);
 		
 		JLabel lblNewLabel_2_2 = new JLabel("\u5E74");
 		lblNewLabel_2_2.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2_2.setBounds(156, 68, 19, 15);
+		lblNewLabel_2_2.setBounds(186, 68, 19, 15);
 		contentPane.add(lblNewLabel_2_2);
 		
 		comboBox_1_1_2 = new JComboBox();
@@ -209,22 +209,22 @@ public class Reserve extends JFrame {
 			}
 		});
 		comboBox_1_1_2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
-		comboBox_1_1_2.setBounds(185, 64, 43, 23);
+		comboBox_1_1_2.setBounds(215, 64, 68, 23);
 		contentPane.add(comboBox_1_1_2);
 		
 		JLabel lblNewLabel_2_1_2 = new JLabel("\u6708");
 		lblNewLabel_2_1_2.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2_1_2.setBounds(238, 68, 19, 15);
+		lblNewLabel_2_1_2.setBounds(293, 68, 19, 15);
 		contentPane.add(lblNewLabel_2_1_2);
 		
 		comboBox_1_1_1_1 = new JComboBox();
 		comboBox_1_1_1_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-		comboBox_1_1_1_1.setBounds(267, 64, 43, 23);
+		comboBox_1_1_1_1.setBounds(322, 64, 68, 23);
 		contentPane.add(comboBox_1_1_1_1);
 		
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("\u65E5");
 		lblNewLabel_2_1_1_1.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2_1_1_1.setBounds(320, 68, 19, 15);
+		lblNewLabel_2_1_1_1.setBounds(400, 68, 19, 15);
 		contentPane.add(lblNewLabel_2_1_1_1);
 		
 		textField = new JTextField();
@@ -263,20 +263,20 @@ public class Reserve extends JFrame {
 		
 		comboBox_1_2_1 = new JComboBox();
 		comboBox_1_2_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9"}));
-		comboBox_1_2_1.setBounds(127, 93, 43, 23);
+		comboBox_1_2_1.setBounds(127, 93, 68, 23);
 		contentPane.add(comboBox_1_2_1);
 		
 		JLabel lblNewLabel_2_2_1 = new JLabel("\u4EBA");
 		lblNewLabel_2_2_1.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2_2_1.setBounds(180, 97, 19, 15);
+		lblNewLabel_2_2_1.setBounds(215, 97, 19, 15);
 		contentPane.add(lblNewLabel_2_2_1);
 		
 		btnNewButton = new JButton("\u78BA\u8A8D");
-		btnNewButton.setBounds(341, 93, 85, 23);
+		btnNewButton.setBounds(441, 93, 85, 23);
 		contentPane.add(btnNewButton);
 		
 		btnNewButton_1 = new JButton("\u8FD4\u56DE");
-		btnNewButton_1.setBounds(341, 6, 85, 23);
+		btnNewButton_1.setBounds(441, 6, 85, 23);
 		contentPane.add(btnNewButton_1);
 		
 		lblNewLabel_3 = new JLabel("Hint...");
@@ -290,17 +290,17 @@ public class Reserve extends JFrame {
 		
 		lblNewLabel_2_4 = new JLabel("\u5C0F\u5B69");
 		lblNewLabel_2_4.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2_4.setBounds(213, 97, 29, 15);
+		lblNewLabel_2_4.setBounds(244, 97, 29, 15);
 		contentPane.add(lblNewLabel_2_4);
 		
 		comboBox_1_2_2 = new JComboBox();
 		comboBox_1_2_2.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}));
-		comboBox_1_2_2.setBounds(252, 93, 43, 23);
+		comboBox_1_2_2.setBounds(283, 93, 68, 23);
 		contentPane.add(comboBox_1_2_2);
 		
 		lblNewLabel_2_2_2 = new JLabel("\u4EBA");
 		lblNewLabel_2_2_2.setFont(new Font("新細明體", Font.PLAIN, 14));
-		lblNewLabel_2_2_2.setBounds(305, 97, 19, 15);
+		lblNewLabel_2_2_2.setBounds(361, 97, 19, 15);
 		contentPane.add(lblNewLabel_2_2_2);
 	}
 	public JButton getBack() {

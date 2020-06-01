@@ -194,12 +194,12 @@ public class Cancel extends JFrame {
 		
 		comboBox_1_2_1 = new JComboBox();
 		comboBox_1_2_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"}));
-		comboBox_1_2_1.setBounds(87, 101, 58, 23);
+		comboBox_1_2_1.setBounds(87, 101, 68, 23);
 		contentPane.add(comboBox_1_2_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("\u4EBA");
 		lblNewLabel_1_1.setFont(new Font("·s²Ó©úÅé", Font.PLAIN, 14));
-		lblNewLabel_1_1.setBounds(155, 105, 22, 15);
+		lblNewLabel_1_1.setBounds(165, 105, 22, 15);
 		contentPane.add(lblNewLabel_1_1);
 		
 		lblNewLabel_2 = new JLabel("Hint...");
