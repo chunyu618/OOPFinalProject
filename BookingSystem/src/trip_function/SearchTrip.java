@@ -29,6 +29,7 @@ public class SearchTrip {
 	 * @throws NoTripException
 	 */
 	public static ArrayList<Object[]> searchByPolicy(Policy policy) throws NoTripException{
+		
 		// convert destination to travel code.
 		int travel_code = map.get(policy.getDestination());
 		//System.out.println("year : " + policy.getStartDate().get(Calendar.YEAR) + "month : " + policy.getStartDate().get(Calendar.MONTH) + "day : " + policy.getStartDate().get(Calendar.DAY_OF_MONTH));
@@ -41,18 +42,22 @@ public class SearchTrip {
 		year1 = policy.getStartDate()[0].get(Calendar.YEAR);
 		month1 = policy.getStartDate()[0].get(Calendar.MONTH);
 		date1 = policy.getStartDate()[0].get(Calendar.DAY_OF_MONTH);
+		
+		
 		if(policy.getStartDate()[1] == null){
+			// Search for a specific date.
 			year1 = year2;
 			month1 = month2;
 			date1 = date2;
 		}
 		else{
+			// Search for a date interval.
 			year2 = policy.getStartDate()[1].get(Calendar.YEAR);
 			month2 = policy.getStartDate()[1].get(Calendar.MONTH);
 			date2 = policy.getStartDate()[1].get(Calendar.DAY_OF_MONTH);
 		}
 		
-		// Ask databse
+		// Get the tour from databse according to policy.
 		ArrayList<TourData> a = TourDataHandler.getResultFromDatabaseWithInterval(travel_code, year1, month1, date1, year2, month2, date2);
 		
 		// If a is null, then there is no such trip.
@@ -60,6 +65,7 @@ public class SearchTrip {
 			throw new NoTripException();
 		}
 		
+		// Transform the result to ArratList<Objext>
 		ArrayList<Object[]> rev = new ArrayList<Object[]>();
 		for(TourData td : a){
 			String[] tmp = new String[7];

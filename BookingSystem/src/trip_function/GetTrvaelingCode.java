@@ -14,7 +14,7 @@ import java.util.Set;
 
 
 /**
- * GetTrvaelingCode will convert json file to a mapping from String to Integer, 
+ * GetTrvaelingCode class will convert json file to a mapping from String to Integer, 
  * which record the travel code of destination.
  * @author lijunyu
  *
@@ -42,7 +42,7 @@ public class GetTrvaelingCode {
 				int travel_code = Integer.parseInt(JObj.get("travel_code").toString());
 				// parse travel_code_name.
 				String name = JObj.get("travel_code_name").toString();
-				// split by 
+				// split by .
 				String[] place = name.split("．");
 				// aput every pair of destination and travel code to map.
 				for(String w : place){
